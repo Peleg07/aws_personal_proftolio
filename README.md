@@ -13,7 +13,7 @@ This project covers everything from the static front-end to the cloud infrastruc
 Every push to the main branch triggers a full deployment with no manual steps.
 
 ## Architecture
-<img width="1448" height="1086" alt="architecture" src="s3_bucket_files/architecture.png" />
+<img width="1448" height="1086" alt="architecture" src="docs/architecture.png" />
 
 
 ## Tech Stack

@@ -1,5 +1,4 @@
 s3_bucket_files/
-!s3_bucket_files/architecture.png
 
 # Local .terraform directories
 **/.terraform/*
