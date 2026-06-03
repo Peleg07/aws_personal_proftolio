@@ -1,4 +1,4 @@
-s3_bucket_files/
+s3_bucket_prod/
 
 # Local .terraform directories
 **/.terraform/*
