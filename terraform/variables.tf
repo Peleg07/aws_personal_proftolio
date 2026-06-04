@@ -60,7 +60,7 @@ variable "github_branch" {
 variable "s3_bucket_files_dir" {
   description = "Path to the site files directory within the repo (relative to repo root)"
   type        = string
-  default     = "s3_bucket_files"
+  default     = "s3_bucket_dev"
 }
 
 # Tags
