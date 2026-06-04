@@ -343,7 +343,7 @@ img{display:block;max-width:100%}
   background:var(--grad);opacity:0;transition:opacity .3s;
   mask:linear-gradient(#fff,#fff) content-box,linear-gradient(#fff,#fff);
   mask-composite:exclude;-webkit-mask-composite:xor;
-  padding:1.5px;
+  padding:1.5px;pointer-events:none;
 }
 .project-card:hover{
   transform:translateY(-8px);
@@ -376,12 +376,21 @@ img{display:block;max-width:100%}
 }
 .project-links{display:flex;gap:14px}
 .proj-link{
-  display:inline-flex;align-items:center;gap:5px;
+  display:inline-flex;align-items:center;gap:7px;
   font-size:13px;font-weight:700;color:var(--text2);
-  transition:color .2s;
+  padding:9px 18px;border-radius:8px;
+  border:1.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.04);
+  transition:all .22s var(--ease);
 }
-.proj-link:hover{color:var(--cyan)}
-.proj-link svg{width:13px;height:13px}
+.proj-link:hover{
+  color:var(--cyan);
+  border-color:var(--cyan);
+  background:rgba(0,212,255,.07);
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,102,255,.18);
+}
+.proj-link svg{width:15px;height:15px;flex-shrink:0}
 
 /* ─── TIMELINE ───────────────────────────────────────────── */
 .timeline{position:relative;padding-left:40px}
@@ -778,7 +787,7 @@ footer{
 
       <div class="project-card reveal" style="transition-delay:.06s">
         <div class="project-glow"></div>
-        <div class="project-num">AWS</div>
+        <div class="project-num" style="color:#ff8c42">01 - AWS</div>
         <div class="project-name">Personal Portfolio Platform</div>
         <div class="project-desc">Full-stack cloud deployment of a personal portfolio website. Infrastructure provisioned with Terraform — S3 static hosting, CloudFront CDN, and ACM certificate. Releases are fully automated via AWS CodePipeline connected to the Git repo, pushing updates live on every merge with zero manual steps.</div>
         <div class="project-stack">
