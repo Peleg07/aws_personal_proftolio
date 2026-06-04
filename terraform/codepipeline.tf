@@ -253,10 +253,10 @@ resource "aws_codebuild_project" "deploy" {
       phases:
         build:
           commands:
-            - echo "Syncing $SITE_DIR to s3://$WEBSITE_BUCKET"
-            - aws s3 sync $SITE_DIR/ s3://$WEBSITE_BUCKET/ --delete --exclude "Peleg_Levy_CV.pdf" --exclude "protfolio_image.png"
-            - echo "Invalidating CloudFront distribution $CF_DIST_ID"
-            - aws cloudfront create-invalidation --distribution-id $CF_DIST_ID --paths "/*"
+            - echo "Uploading only $SITE_DIR/index.html to s3://$WEBSITE_BUCKET/index.html"
+            - aws s3 cp "$SITE_DIR/index.html" "s3://$WEBSITE_BUCKET/index.html" --content-type "text/html" --cache-control "no-cache"
+            - echo "Invalidating only index.html in CloudFront distribution $CF_DIST_ID"
+            - aws cloudfront create-invalidation --distribution-id $CF_DIST_ID --paths "/index.html" "/"
     BUILDSPEC
   }
 }
