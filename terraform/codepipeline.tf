@@ -254,7 +254,7 @@ resource "aws_codebuild_project" "deploy" {
         build:
           commands:
             - echo "Syncing $SITE_DIR to s3://$WEBSITE_BUCKET"
-            - aws s3 sync $SITE_DIR/ s3://$WEBSITE_BUCKET/ --delete
+            - aws s3 sync $SITE_DIR/ s3://$WEBSITE_BUCKET/ --delete --exclude "Peleg_Levy_CV.pdf" --exclude "protfolio_image.png"
             - echo "Invalidating CloudFront distribution $CF_DIST_ID"
             - aws cloudfront create-invalidation --distribution-id $CF_DIST_ID --paths "/*"
     BUILDSPEC
