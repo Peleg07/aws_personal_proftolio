@@ -60,25 +60,25 @@ resource "aws_s3_bucket_policy" "website" {
 resource "aws_s3_object" "index_html" {
   bucket       = aws_s3_bucket.website.id
   key          = "index.html"
-  source       = "${path.module}/../s3_bucket_files/${var.index_html_path}"
+  source       = "${path.module}/../s3_bucket_prod/${var.index_html_path}"
   content_type = "text/html"
-  etag         = filemd5("${path.module}/../s3_bucket_files/${var.index_html_path}")
+  etag         = filemd5("${path.module}/../s3_bucket_prod/${var.index_html_path}")
 }
 
 resource "aws_s3_object" "portfolio_image" {
   bucket       = aws_s3_bucket.website.id
   key          = "protfolio_image.png"
-  source       = "${path.module}/../s3_bucket_files/protfolio_image.png"
+  source       = "${path.module}/../s3_bucket_prod/protfolio_image.png"
   content_type = "image/png"
-  etag         = filemd5("${path.module}/../s3_bucket_files/protfolio_image.png")
+  etag         = filemd5("${path.module}/../s3_bucket_prod/protfolio_image.png")
 }
 
 resource "aws_s3_object" "cv_pdf" {
   bucket       = aws_s3_bucket.website.id
   key          = "Peleg_Levy_CV.pdf"
-  source       = "${path.module}/../s3_bucket_files/Peleg_Levy_CV.pdf"
+  source       = "${path.module}/../s3_bucket_prod/Peleg_Levy_CV.pdf"
   content_type = "application/pdf"
-  etag         = filemd5("${path.module}/../s3_bucket_files/Peleg_Levy_CV.pdf")
+  etag         = filemd5("${path.module}/../s3_bucket_prod/Peleg_Levy_CV.pdf")
 }
 
 # CloudFront Distribution
